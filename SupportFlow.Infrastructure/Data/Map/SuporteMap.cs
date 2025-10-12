@@ -16,7 +16,8 @@ namespace SupportFlow.Infrastructure.Data.Map
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Nome).IsRequired().HasMaxLength(120);
             builder.Property(x => x.Descricao).HasMaxLength(500);
-            builder.Property(x => x.Status).IsRequired();
+            builder.Property(x => x.Status).HasConversion<string>().IsRequired();
+            builder.Property(x => x.DataSuporte);
             builder.Property(x => x.UsuarioID);
             builder.HasOne(x => x.Usuario);
         }
