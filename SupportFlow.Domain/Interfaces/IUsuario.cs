@@ -10,6 +10,7 @@ namespace SupportFlow.Domain.Interfaces
     public interface IUsuario
     {
         Task<List<Usuario>> TodosUsuarios();
+        Task<Usuario> BuscarId(int id);
         Task<Usuario> BuscarLogin(string Login);
         Task<Usuario> Cadastrar(Usuario usuario);
         Task<Usuario> Atualizar(Usuario usuario, int id);

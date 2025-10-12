@@ -12,7 +12,8 @@ namespace SupportFlow.Domain.Entities
         public int Id { get; set; }
         public string? Nome { get; set; }
         public string? Descricao { get; set; }
-        public Status Status { get; set; }
+        public Status Status { get; set; } 
+        public DateTimeOffset? DataSuporte {  get; set; } = DateTimeOffset.UtcNow;
         public int? UsuarioID { get; set; }
         public virtual Usuario? Usuario { get; set; }
     }
