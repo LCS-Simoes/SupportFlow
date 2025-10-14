@@ -1,8 +1,108 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Painel do Usuário";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="app">
+    <header>
+        <div class="brand">
+            <div class="logo">SF</div>
+            <div>
+                <h1>SupportFlow</h1>
+                <p class="lead">Olá, @User.Identity?.Name — aqui você pode criar e acompanhar seus pedidos de suporte.</p>
+            </div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+            <button class="btn ghost">Ajuda</button>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;font-size:13px">
+                <strong>@User.Identity?.Name</strong>
+                <span class="muted">Usuário comum</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="grid">
+        <section>
+            <div class="card">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div>
+                        <h2 style="margin:0;font-size:16px">Meus pedidos</h2>
+                        <div class="muted" style="margin-top:6px">Crie um novo pedido quando precisar de ajuda do time de suporte.</div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn" id="btnNovo">Criar novo pedido</button>
+                    </div>
+                </div>
+
+                <div class="search">
+                    <input placeholder="Pesquisar por assunto, id ou status..." />
+                </div>
+
+                <div class="tickets">
+                    <div class="empty">
+                        <div style="font-size:20px;margin-bottom:8px">Nenhum pedido criado</div>
+                        <div class="muted">Clique em "Criar novo pedido" para abrir um chamado ao time de suporte.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:14px">
+                <h3 style="margin:0 0 8px 0;font-size:14px">Dicas rápidas</h3>
+                <ul class="muted" style="margin:0 0 0 18px;padding:0">
+                    <li>Descreva claramente o problema e inclua passos para reproduzir.</li>
+                    <li>Anexe prints ou arquivos relevantes.</li>
+                    <li>Verifique a seção "Ajuda" antes de abrir um pedido.</li>
+                </ul>
+            </div>
+        </section>
+
+        <aside class="panel">
+            <div class="card box">
+                <h4 style="margin:0 0 8px 0">Criar pedido rápido</h4>
+                <p class="muted" style="margin:0 0 12px 0">Use o botão "Criar novo pedido" para abrir o formulário completo.</p>
+                <button class="btn" id="btnAbrirForm">Abrir formulário</button>
+            </div>
+
+            <div class="card box">
+                <h4 style="margin:0 0 8px 0">Status dos pedidos</h4>
+                <div class="muted">Novo — Pendente — Em andamento — Resolvido — Fechado</div>
+            </div>
+
+            <div class="card box">
+                <h4 style="margin:0 0 8px 0">Contato alternativo</h4>
+                <div class="muted">suporte@supportflow.com</div>
+            </div>
+        </aside>
+    </main>
 </div>
+
+<!-- Modal criar ticket -->
+<div class="modal-backdrop" id="modalCriar">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <h3 id="modalTitle" style="margin-top:0">Criar novo pedido de suporte</h3>
+        <form method="post" asp-action="Criar">
+            <div class="form-row">
+                <label for="Assunto">Assunto</label>
+                <input id="Assunto" name="Assunto" placeholder="Ex: Erro ao gerar relatório" />
+            </div>
+            <div class="form-row">
+                <label for="Categoria">Categoria</label>
+                <select id="Categoria" name="Categoria">
+                    <option>Selecione</option>
+                    <option>Infraestrutura</option>
+                    <option>Sistemas</option>
+                    <option>Conta / Acesso</option>
+                    <option>Outro</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="Descricao">Descrição</label>
+                <textarea id="Descricao" name="Descricao" placeholder="Descreva o problema..."></textarea>
+            </div>
+            <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:8px">
+                <button type="button" class="btn ghost" id="btnCancelar">Cancelar</button>
+                <button type="submit" class="btn">Enviar pedido</button>
+            </div>
+        </form>
+    </div>
+</div>
+
