@@ -10,6 +10,7 @@ namespace SupportFlow.Domain.Enums
     {
         Tecnologia,
         Administrativo,
-        Gerenia
+        Gerencia,
+        RercusosHumanos
     }
 }
