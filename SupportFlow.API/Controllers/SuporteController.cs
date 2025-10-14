@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SupportFlow.Application.DTOs;
+using SupportFlow.Application.DTOs.SuporteDTOs;
 using SupportFlow.Application.UseCases.Suportes;
 
 
