@@ -1,4 +1,4 @@
-﻿using SupportFlow.Application.DTOs;
+﻿using SupportFlow.Application.DTOs.SuporteDTOs;
 using SupportFlow.Domain.Entities;
 using SupportFlow.Domain.Enums;
 using SupportFlow.Domain.Interfaces;

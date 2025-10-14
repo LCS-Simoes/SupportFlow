@@ -2,9 +2,9 @@
 
 namespace SupportFlow.Application.UseCases.Suportes
 {
-    public static class DependecyInjection
+    public static class DependecyInjectionSuporte
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        public static IServiceCollection AddApplicationSuport(this IServiceCollection services)
         {
             // Aqui você registra todos os seus UseCases
             services.AddScoped<CriarSuporteUseCase>();
