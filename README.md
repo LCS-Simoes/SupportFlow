@@ -17,14 +17,14 @@ Seu objetivo é otimizar a comunicação entre usuários e equipes de atendiment
 ---
 
 ## 🧱 Estrutura do Projeto
-
+```
 src/
 ├── SupportFlow.API              # Projeto ASP.NET Core Web API (Controllers, Endpoints, Configurações, Swagger)
 ├── SupportFlow.Application      # Camada de Aplicação (Use Cases, DTOs,)
 ├── SupportFlow.Domain           # Camada de Domínio (Entidades, Enums, Regras de Negócio, Contratos)
 ├── SupportFlow.Infrastructure   # Camada de Infraestrutura (EF Core, SQLite, Repositórios, Mapeamentos)
 └── SupportFlow.Front            # Camada de Apresentação (Razor Pages, Views, wwwroot, Integração com a API)
-
+```
 ## 👨‍💻 Autor
 **Lucas Simões**  
 📍 Desenvolvedor focado em soluções web e arquitetura limpa  
