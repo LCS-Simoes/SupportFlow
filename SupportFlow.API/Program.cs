@@ -1,4 +1,3 @@
-
 using Microsoft.EntityFrameworkCore;
 using SupportFlow.Application.UseCases.Suportes;
 using SupportFlow.Application.UseCases.Usuarios;
@@ -22,7 +21,18 @@ namespace SupportFlow.API
             builder.Services.AddApplicationSuport();
             builder.Services.AddApplicationUser(); 
             builder.Services.AddInfrastructure(builder.Configuration);
-           
+
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy.AllowAnyOrigin()
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
+
 
             var app = builder.Build();
 
@@ -35,6 +45,7 @@ namespace SupportFlow.API
 
             app.UseHttpsRedirection();
 
+            app.UseCors("AllowAll");
             app.UseAuthorization();
 
 
