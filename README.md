@@ -1,4 +1,4 @@
-# 💬 SupportFlow
+# 💬 SupportFlow - Em Desenvolvimento
 
 O **SupportFlow** é uma aplicação desenvolvida em **ASP.NET Core** com arquitetura limpa, voltada para o **gerenciamento de tickets de suporte**.  
 Seu objetivo é otimizar a comunicação entre usuários e equipes de atendimento, permitindo o registro, acompanhamento e categorização de solicitações de forma simples e eficiente.
