@@ -103,6 +103,38 @@ async function carregarTickets() {
     }
 }
 
+async function buscarLogin() {
+
+    const btnAbrirForm = document.getElementById('entrar');
+
+    btnAbrirForm.addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value;
+        //const password = document.getElementById('password').value;
+
+        try {
+            const response = await fetch('https://localhost:44360/api/Usuario/Login', {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({username})
+            });
+
+            if (!response.ok) throw new Error('Erro ao realizar busca');
+
+            const login = await response.json();
+
+            if (login === true) {
+                console.log("Login bem-sucedido");
+            } else {
+                console.log("Login inválido");
+            }
+        } catch (error) {
+            console.error('Erro:', error);
+        }
+    });
+}
+
 // --- Inicializar ---
 document.addEventListener('DOMContentLoaded', () => {
     carregarTickets();

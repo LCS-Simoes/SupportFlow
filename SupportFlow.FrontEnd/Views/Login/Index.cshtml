@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    ViewData["MostrarHeader"] = false;
+}
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg border-0" style="background:#111a2e; width: 380px;">
+        <div class="text-center mb-4">
+            <div class="rounded-3 d-inline-flex justify-content-center align-items-center mb-2"
+                 style="width:60px;height:60px;background:linear-gradient(135deg,#06b6d4,#3b82f6);font-weight:700;color:#fff;font-size:1.3rem;">
+                SF
+            </div>
+            <h3 class="text-light mb-0">SupportFlow</h3>
+            <small class="text-muted">Acesse sua conta</small>
+        </div>
+
+        <form>
+            <div class="mb-3">
+                <label for="username" class="form-label text-light">Usuário</label>
+                <input type="text" class="form-control bg-dark text-light border-0" id="username" placeholder="Digite seu usuário">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label text-light">Senha</label>
+                <input type="password" class="form-control bg-dark text-light border-0" id="password" placeholder="Digite sua senha">
+            </div>
+            <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" id="remember">
+                <label class="form-check-label text-light" for="remember"> Lembrar-me</label>
+            </div>
+            <div class="login-actions">
+                <div class="forgot-password">
+                    <a href="/RecuperarSenha">Esqueceu a senha?</a>
+                </div>
+                <button id="entrar" type="submit" class="btn w-100 text-white" style="background:linear-gradient(135deg,#06b6d4,#3b82f6);">
+                    Entrar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

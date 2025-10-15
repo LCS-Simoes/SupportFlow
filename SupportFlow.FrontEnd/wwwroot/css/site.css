@@ -217,24 +217,28 @@ textarea {
     }
 }
 
-/*
-    html {
-  font-size: 14px;
+/* LOGIN CSS */
+.login-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.forgot-password {
+    margin-bottom: 15px; /* Espaço entre o link e o botão */
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.forgot-password a {
+    color: #4da6ff; /* azul claro combinando com o botão */
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.forgot-password a:hover {
+    color: #80c1ff;
+    text-decoration: underline;
 }
-*/
+
+
 
