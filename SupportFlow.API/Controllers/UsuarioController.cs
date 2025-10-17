@@ -15,15 +15,17 @@ namespace SupportFlow.API.Controllers
         private readonly BuscarUsuarioIdUseCase _buscarUsuario;
         private readonly AtualizarUsuarioUseCase _atualizarUsuario;
         private readonly DeletarUsuarioUseCase _deletarUsuario;
+        private readonly VerificarLogin _verificarLogin;
 
         public UsuarioController(CriarUsuarioUseCase criar, ListarUsuarioUseCase listar, BuscarUsuarioIdUseCase buscar,
-            AtualizarUsuarioUseCase atualizar, DeletarUsuarioUseCase deletar) 
+            AtualizarUsuarioUseCase atualizar, DeletarUsuarioUseCase deletar, VerificarLogin login) 
         {
             _criarUsuario = criar;
             _listarUsuario = listar;
             _buscarUsuario = buscar;
             _atualizarUsuario= atualizar;
             _deletarUsuario = deletar;
+            _verificarLogin = login;
         }
 
         [HttpGet]
@@ -34,12 +36,22 @@ namespace SupportFlow.API.Controllers
         }
 
         // GET api/<UsuarioController>/5
+        /*
         [HttpGet("{id}")]
         public async Task<ActionResult> BuscarId(int id)
         {
             var usuario = await _buscarUsuario.Handle(id);
             return Ok(usuario);
         }
+        */
+
+        [HttpGet("{username}")]
+        public async Task<ActionResult> Login(string username)
+        {
+            var usuario = await _verificarLogin.Handle(username);
+            return Ok(usuario);
+        }
+        
 
         // POST api/<UsuarioController>
         [HttpPost]
