@@ -12,10 +12,9 @@ namespace SupportFlow.Application.UseCases.Usuarios
             services.AddScoped<BuscarUsuarioIdUseCase>();
             services.AddScoped<AtualizarUsuarioUseCase>();
             services.AddScoped<DeletarUsuarioUseCase>();
+            services.AddScoped<AutenticacaoUseCase>();
 
-            // Adicione todos os outros use cases que você tiver
             return services;
-
 
             /*
              * Posteriormente usar as Interfaces do UseCase 
