@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportFlow.Domain", "SupportFlow.Domain\SupportFlow.Domain.csproj", "{C163FED0-B928-4A2D-8CEA-F078A6E4A73C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportFlow.Application", "SupportFlow.Application\SupportFlow.Application.csproj", "{F7E292C5-D121-428A-88D7-BBD7C73CBD6B}"
@@ -12,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportFlow.Infrastructure", "SupportFlow.Infrastructure\SupportFlow.Infrastructure.csproj", "{AED16EE0-5DC2-4E6A-8D6B-C4387AD598C6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportFlow.API", "SupportFlow.API\SupportFlow.API.csproj", "{D9727E51-0C4B-4663-93E7-E47646BCE102}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F7E292C5-D121-428A-88D7-BBD7C73CBD6B} = {F7E292C5-D121-428A-88D7-BBD7C73CBD6B}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportFlow.FrontEnd", "SupportFlow.FrontEnd\SupportFlow.FrontEnd.csproj", "{E94E1C06-0E10-45E8-A2B0-DDC187E170C9}"
 EndProject
@@ -44,13 +45,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{C163FED0-B928-4A2D-8CEA-F078A6E4A73C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{F7E292C5-D121-428A-88D7-BBD7C73CBD6B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{AED16EE0-5DC2-4E6A-8D6B-C4387AD598C6} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{D9727E51-0C4B-4663-93E7-E47646BCE102} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{E94E1C06-0E10-45E8-A2B0-DDC187E170C9} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2CFB6BEF-05EB-4587-B70C-018083135F4E}
