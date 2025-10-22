@@ -23,14 +23,14 @@ namespace SupportFlow.Infrastructure.Data.Repositories
             return await _dbcontext.Usuarios.ToListAsync();
         }
 
-        public async Task<Usuario> BuscarId(int id)
+        public async Task<Usuario?> BuscarId(int id)
         {
             return await _dbcontext.Usuarios.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public Task<Usuario> BuscarLogin(string Login)
+        public async Task<Usuario?> BuscarLogin(string username)
         {
-            throw new NotImplementedException();
+            return await _dbcontext.Usuarios.FirstOrDefaultAsync(x => x.Username == username);
         }
 
         public async Task<Usuario> Cadastrar(Usuario usuario)
