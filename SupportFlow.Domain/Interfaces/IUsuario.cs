@@ -11,7 +11,7 @@ namespace SupportFlow.Domain.Interfaces
     {
         Task<List<Usuario>> TodosUsuarios();
         Task<Usuario> BuscarId(int id);
-        Task<Usuario> BuscarLogin(string Login);
+        Task<Usuario> BuscarLogin(string username);
         Task<Usuario> Cadastrar(Usuario usuario);
         Task<Usuario> Atualizar(Usuario usuario, int id);
         Task<bool> Deletar(int id);
