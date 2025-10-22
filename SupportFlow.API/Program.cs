@@ -1,7 +1,11 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using SupportFlow.Application.UseCases.Suportes;
 using SupportFlow.Application.UseCases.Usuarios;
 using SupportFlow.Infrastructure.Data;
+using DotNetEnv;
+using System.Text;
 
 namespace SupportFlow.API
 {
@@ -10,6 +14,39 @@ namespace SupportFlow.API
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+
+            Env.TraversePath().Load();
+
+            var jwtKey = Environment.GetEnvironmentVariable("JWT_KEY")
+                         ?? builder.Configuration["Jwt:Key"];
+
+            var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER")
+                            ?? builder.Configuration["Jwt:Issuer"];
+
+            var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE")
+                              ?? builder.Configuration["Jwt:Audience"];
+
+            
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = jwtIssuer,
+                    ValidAudience = jwtAudience,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+                };
+            });
+
 
             // Add services to the container.
 
