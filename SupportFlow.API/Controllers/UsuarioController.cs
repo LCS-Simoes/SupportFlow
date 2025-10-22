@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SupportFlow.Application.DTOs;
 using SupportFlow.Application.UseCases.Usuarios;
+using SupportFlow.Domain.Entities;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,10 +16,10 @@ namespace SupportFlow.API.Controllers
         private readonly BuscarUsuarioIdUseCase _buscarUsuario;
         private readonly AtualizarUsuarioUseCase _atualizarUsuario;
         private readonly DeletarUsuarioUseCase _deletarUsuario;
-        private readonly VerificarLogin _verificarLogin;
+        private readonly AutenticacaoUseCase _verificarLogin;
 
         public UsuarioController(CriarUsuarioUseCase criar, ListarUsuarioUseCase listar, BuscarUsuarioIdUseCase buscar,
-            AtualizarUsuarioUseCase atualizar, DeletarUsuarioUseCase deletar, VerificarLogin login) 
+            AtualizarUsuarioUseCase atualizar, DeletarUsuarioUseCase deletar, AutenticacaoUseCase login) 
         {
             _criarUsuario = criar;
             _listarUsuario = listar;
@@ -36,25 +37,15 @@ namespace SupportFlow.API.Controllers
         }
 
         // GET api/<UsuarioController>/5
-        /*
         [HttpGet("{id}")]
         public async Task<ActionResult> BuscarId(int id)
         {
             var usuario = await _buscarUsuario.Handle(id);
             return Ok(usuario);
         }
-        */
-
-        [HttpGet("{username}")]
-        public async Task<ActionResult> Login(string username)
-        {
-            var usuario = await _verificarLogin.Handle(username);
-            return Ok(usuario);
-        }
         
-
         // POST api/<UsuarioController>
-        [HttpPost]
+        [HttpPost("Cadastrar")]
         public async Task<ActionResult> Cadastrar([FromBody] CriarUsuarioRequest request)
         {
             var usuario = await _criarUsuario.ExecuteAsync(request);
