@@ -1,4 +1,6 @@
-﻿using SupportFlow.Domain.Enums;
+﻿using SupportFlow.Application.Utils;
+using SupportFlow.Domain.Entities;
+using SupportFlow.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +16,17 @@ namespace SupportFlow.Application.DTOs
         public string Senha { get; set; }
         public string setor { get; set; }
         public string perfil { get; set; }
+
+        public Usuario ToEntity()
+        {
+            return new Usuario
+            {
+                Nome = Nome,
+                Username = Username,
+                Senha = SenhaHelper.GerarHash(Senha),
+                Perfil = (Perfil)Enum.Parse(typeof(Perfil), perfil),
+                Setor = (Setor)Enum.Parse(typeof(Setor), setor)
+            };
+        }
     }
 }
