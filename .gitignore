@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /SupportFlow.API/.env
 /.env
+/SupportFlow.Infrastructure/Data/db_SupportFlow.db
