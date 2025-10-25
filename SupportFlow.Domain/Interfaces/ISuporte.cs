@@ -12,6 +12,7 @@ namespace SupportFlow.Domain.Interfaces
         Task<List<Suporte>> TodosChamados();
         //Task<Suporte> BuscarporSetor(string setor);
         Task<Suporte> BuscarID(int id);
+        Task<List<Suporte>> TicketUsuario(int usuarioID);
         Task<Suporte> Criar(Suporte suporte);
         Task<Suporte> Atualizar(Suporte suporte, int id);
         Task<bool> Deletar(int id);
