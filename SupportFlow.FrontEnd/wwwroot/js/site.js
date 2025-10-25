@@ -8,7 +8,7 @@ if (btnNovo) btnNovo.addEventListener('click', () => modal.style.display = 'flex
 if (btnAbrirForm) btnAbrirForm.addEventListener('click', () => modal.style.display = 'flex');
 if (btnCancelar) btnCancelar.addEventListener('click', () => modal.style.display = 'none');
 
-// --- Formulário ---
+// --- Formulário (EM PRODUÇÃO)---
 const formCriar = modal?.querySelector('form');
 
 if (formCriar) {
@@ -52,7 +52,7 @@ if (formCriar) {
     });
 }
 
-// --- Carregar tickets --- --> Corrigir pra carregar os tickets do usuario logado ou os que tem requisitado
+// --- Carregar tickets --- 
 async function carregarTickets() {
     const ticketsContainer = document.querySelector('.tickets');
     if (!ticketsContainer) return;
@@ -66,7 +66,7 @@ async function carregarTickets() {
     try {
         const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 
-        const response = await fetch('https://localhost:44360/api/Suporte', {
+        const response = await fetch('https://localhost:44360/api/Auth/tickets', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -159,10 +159,12 @@ async function configurarLogin() {
 
             // Redireciona para home
             window.location.href = '/Home';
+            
 
         } catch (error) {
             console.error('Erro ao fazer login:', error);
             alert('Erro ao fazer login. Verifique suas credenciais.');
+
         }
     });
 }
