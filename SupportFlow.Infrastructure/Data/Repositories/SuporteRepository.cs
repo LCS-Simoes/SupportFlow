@@ -30,6 +30,14 @@ namespace SupportFlow.Infrastructure.Data.Repositories
                 .Include(x => x.Usuario)
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
+
+        public async Task<List<Suporte>> TicketUsuario(int usuarioID)
+        {
+            return await _dbcontext.Suportes
+                .Include(s => s.Usuario)
+                .Where(s => s.UsuarioID == usuarioID)
+                .ToListAsync();
+        }
        
         public async Task<Suporte> Criar(Suporte suporte)
         {
