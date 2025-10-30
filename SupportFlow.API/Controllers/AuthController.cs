@@ -92,7 +92,7 @@ namespace SupportFlow.API.Controllers
             {
                  new Claim("id", usuario.Id.ToString()),
                  new Claim(ClaimTypes.Name, username),
-                 new Claim(ClaimTypes.Role, perfil)
+                 new Claim("perfil", usuario.Perfil.ToString())
             };
 
             var token = new JwtSecurityToken(
